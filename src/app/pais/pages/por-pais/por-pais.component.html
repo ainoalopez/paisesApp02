@@ -1,19 +1,21 @@
-<h2>Por País</h2>
-<hr />
-
-<!-- buscador -->
-<div class="row">
-  <div class="col">
-    <app-pais-input
-      (onEnter)="buscar( $event )"
-      (onDebounce)="sugerencias( $event )"
-      placeholder="Buscar país...">
-      <!-- escuchamos el término emitido por el componente hijo y cuando se recibe el evento se dispara el buscar -->
-    </app-pais-input>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Por País</h2>
+  <hr />
+  
+  <!-- buscador -->
+  <div class="row">
+    <div class="col">
+      <app-pais-input
+        (onEnter)="buscar( $event )"
+        (onDebounce)="sugerencias( $event )"
+        placeholder="Buscar país...">
+        <!-- escuchamos el término emitido por el componente hijo y cuando se recibe el evento se dispara el buscar -->
+      </app-pais-input>
+    </div>
   </div>
+  
+  <hr />
 </div>
-
-<hr />
 
 <!-- mensaje de alerta -->
 <div *ngIf="hayError" class="alert alert-danger">
@@ -22,7 +24,7 @@
 
 <!-- tabla con la información de los países -->
 <div *ngIf="!hayError" class="row">
-  <div class="col">
+  <div *ngIf="paises.length > 0" class="col">
     <!-- mandamos la información de los paises al componente de la tabla -->
     <app-pais-tabla [paises]="paises"></app-pais-tabla>
   </div>

@@ -36,3 +36,5 @@ export class PorRegionComponent {
   }
 
 }
+
+// 'name,capital,alpha2Code,flag,population'
